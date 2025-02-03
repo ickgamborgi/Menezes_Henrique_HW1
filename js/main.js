@@ -1,0 +1,1 @@
+console.log("JavaScript file is linked."); // this will ensure my .js file is connected
