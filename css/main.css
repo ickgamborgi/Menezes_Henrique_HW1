@@ -1,1 +1,1 @@
-/*# sourceMappingURL=main.css.map */
+.hidden{display:none}#characters-con ul li{display:flex;flex-direction:row;padding-bottom:15px;margin-left:-40px;gap:15px;align-items:center}#characters-con ul li img{max-width:75px;border-radius:100%}#characters-con ul li a{font-size:24px;font-weight:800;font-family:"Open Sans";text-decoration:none;color:#000;transition:all .2s ease-in-out}#characters-con ul li a:hover{color:red}/*# sourceMappingURL=main.css.map */
