@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"main.css"}
+{"version":3,"sourceRoot":"","sources":["../sass/components/_starwars.scss"],"names":[],"mappings":"AAAA,QACI,aAGJ,sBACI,aACA,mBACA,oBACA,kBACA,SACA,mBAEA,0BACI,eACA,mBAGJ,wBACI,eACA,gBACA,wBACA,qBACA,WACA,+BAEA,8BACI","file":"main.css"}
