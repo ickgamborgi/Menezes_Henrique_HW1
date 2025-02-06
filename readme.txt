@@ -1,6 +1,6 @@
-# Homework 1 - Ajax Redux
+# Star Wars Movie Guide API
 
-This project was developed as an assignment for Multimedia Authoring 4, IDP3 program, Winter 2025, on Fanshawe College. All credits belong to student Henrique Gamborgi Menezes.
+This project was developed as the AJAX Redux assignment for Multimedia Authoring 4, IDP3 program, Winter 2025, on Fanshawe College. All credits belong to student Henrique Gamborgi Menezes.
 
 ## Installation
 1. Click on the link to the sample repository provided;
