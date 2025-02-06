@@ -40,7 +40,7 @@ body {
 
 main {
     background-color: white;
-    padding-bottom: 100px;
+    padding-bottom: 200px;
 }
 
 #loader, #loader-movie {
@@ -130,10 +130,14 @@ header {
     }
 }
 
+#characters-con ul {
+    cursor: pointer;
+}
+
 #characters-con ul li {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 15px;
     align-items: center;
 
     img {
@@ -142,7 +146,7 @@ header {
     }
 
     a {
-        font-size: 24px;
+        font-size: 22px;
         font-weight: 800;
         font-family: "Open Sans";
         text-decoration: none;
@@ -155,6 +159,10 @@ header {
 #characters-con ul li:hover a {
     color: yellow;
 }
+
+
+
+
 
 .template-wrap {
     display: flex;
@@ -187,6 +195,22 @@ header {
     width: fit-content;
 }
 
+footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+    border-top: 2px solid rgba(0, 0, 0, 0.263);
+    padding-top: 50px;;
+    gap: 15px;
+
+    h3 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
 
 /* ---Mobile Styles--- */
 @media screen and (max-width: 1000px) {
@@ -212,5 +236,9 @@ header {
 
     #movie-guide {
         margin-top: 100px;
+    }
+
+    .movie-opening {
+        max-width: 300px;
     }
 }
