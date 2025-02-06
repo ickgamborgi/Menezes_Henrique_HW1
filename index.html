@@ -26,29 +26,48 @@
 <body>
     <h1 class="hidden">Star Wars Movie Guide</h1>
     
-    <header>
-        <nav>
-        </nav>
+    <header class="full-width-grid-con">
+        <img class="col-span-3" src="./images/logo.png" alt="Star Wars Logo">
     </header>
 
     <main class="grid-con">
         <h2 class="hidden">Main Content</h2>
 
+        <section id="intro" class="col-span-full">
+            <img src="./images/2.png" alt="Mandalorian Illustration">
+            <h3 >Welcome to my<span> Star Wars Guide</span>!</h3>
+
+        </section>
+
         <section class="col-span-full m-col-span-6">
-            <h3>Characters</h3>
+            <h3 class="title">Characters</h3>
+            <div class="sub-wrap">
+                <img src="./images/info.png" alt="Info">
+                <p class="subtitle">Click on a character to view more details</p>
+            </div>
             <div id="characters-con">
+                <div id="loader-con">
+                    <svg id="loader" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150"><path fill="none" stroke="#AE0000" stroke-width="15" stroke-linecap="round" stroke-dasharray="300 385" stroke-dashoffset="0" d="M275 75c0 31-27 50-50 50-58 0-92-100-150-100-28 0-50 22-50 50s23 50 50 50c58 0 92-100 150-100 24 0 50 19 50 50Z"><animate attributeName="stroke-dashoffset" calcMode="spline" dur="2" values="685;-685" keySplines="0 0 1 1" repeatCount="indefinite"></animate></path></svg>
+                </div>
                 <!-- Here is where the characters will go -->
             </div>
         </section>
 
         <section class="col-span-full m-col-span-6">
-            <h3>Movie</h3>
-            <div id="movie-con">
+            <h3 class="title" id="movie-guide">Movies</h3>
+            <div class="sub-wrap">
+                <img src="./images/info.png" alt="Info">
+                <p class="subtitle">Check all the movies this character was in</p>
+            </div>           
+             <div id="movie-con">
+                <div id="loader-movie-con">
+                    <svg id="loader-movie" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150"><path fill="none" stroke="#AE0000" stroke-width="15" stroke-linecap="round" stroke-dasharray="300 385" stroke-dashoffset="0" d="M275 75c0 31-27 50-50 50-58 0-92-100-150-100-28 0-50 22-50 50s23 50 50 50c58 0 92-100 150-100 24 0 50 19 50 50Z"><animate attributeName="stroke-dashoffset" calcMode="spline" dur="2" values="685;-685" keySplines="0 0 1 1" repeatCount="indefinite"></animate></path></svg>
+                </div>
                 <!-- Here is where the movie details will go -->
             </div>
 
             <template id="movie-template">
-                <section>
+                <section class="template-wrap">
                     <img class="movie-poster" src="" alt="Movie Poster">
                     <div class="movie-wrap">
                         <h4 class="movie-title"></h4>
