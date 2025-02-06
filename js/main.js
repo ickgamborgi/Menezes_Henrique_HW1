@@ -7,6 +7,12 @@ console.log("JavaScript file is linked."); // Ensure file is connected
     const baseURL = "https://swapi.dev/api";
     let allChar = [];
 
+    const loaderCon = document.querySelector("#loader-con");
+    const loader = document.querySelector("#loader");
+
+    const loaderMovieCon = document.querySelector("#loader-movie-con");
+    const loaderMovie = document.querySelector("#loader-movie");
+
     const characterImages = {
         "Anakin Skywalker": "images/anakin.jpg",
         "Wilhuff Tarkin": "images/tarkin.jpg",
@@ -30,10 +36,14 @@ console.log("JavaScript file is linked."); // Ensure file is connected
     };
 
     function getCharacters() {
+
+        loader.classList.remove("hidden");
+
         fetch(`${baseURL}/people/?page=2&format=json`)
             .then(response => response.json())
             .then(function(response){
                 console.log(response);
+                console.log("Characters list was successfully pulled.")
                 allChar = response.results;
                 charactersCon.innerHTML = "";
 
@@ -62,10 +72,18 @@ console.log("JavaScript file is linked."); // Ensure file is connected
 
                 document.querySelectorAll("#characters-con li a").forEach(link => {
                     link.addEventListener("click", getMovies);
+
                 });
             })
             .catch(function(error){
-                console.log(error);
+                console.error(error);
+                const errorMessage = document.createElement("p");
+                errorMessage.textContent = `We're so sorry! Apparently something went wrong, please test your internet connection or try again later — ERROR: [${error}]`;
+                errorMessage.style.color = "red";
+
+                loaderCon.innerHTML = "";
+                loaderCon.appendChild(loader);
+                loaderCon.appendChild(errorMessage);
             });
     }
 
@@ -74,18 +92,16 @@ console.log("JavaScript file is linked."); // Ensure file is connected
 
         const movieURLs = JSON.parse(event.currentTarget.dataset.films || "[]"); // This was not taught in class, I watched an YouTube tutorial where the guy taught how to turn the data into a JSON.
 
-        if (movieURLs.length === 0) {
-            movieCon.innerHTML = "<p>No movie information available for this character.</p>";
-            return;
-        } // if statement in case the character does not appear in any movies.
-
-        movieCon.innerHTML = ""; // clear results from previous characters
+        movieCon.innerHTML = "";
+        movieCon.appendChild(loaderMovie);
+        loaderMovie.classList.remove("hidden");
 
         movieURLs.forEach(movieURL => {
             fetch(movieURL)
                 .then(response => response.json())
                 .then(function(response){
                     console.log(response);
+                    console.log("Movie " + response.title + " was pulled.")
 
                     const clone = movieTemplate.content.cloneNode(true);
                     const filmOpening = clone.querySelector(".movie-opening");
@@ -95,15 +111,23 @@ console.log("JavaScript file is linked."); // Ensure file is connected
                     filmOpening.innerHTML = response.opening_crawl;
                     filmTitle.innerHTML = response.title;
 
-                    // assigning the images for each poster
-                    filmPoster.src = movieImages[response.title] || "images/default.jpg";
-                    filmPoster.alt = `Poster of ${response.title}`;
+                    filmPoster.src = movieImages[response.title];
 
                     movieCon.appendChild(clone);
+
+                    loaderMovie.classList.add("hidden");
+
                 })
                 .catch(function(error){
-                    console.log("Error fetching movie:", error);
-                });
+                    console.error(error);
+                    const errorMessage2 = document.createElement("p");
+                    errorMessage2.textContent = `We're so sorry! Apparently something went wrong, please test your internet connection or try again later — ERROR: [${error}]`;
+                    errorMessage2.style.color = "red";
+    
+                    movieCon.innerHTML = "";
+                    movieCon.appendChild(loaderMovie);
+                    movieCon.appendChild(errorMessage2);
+                })
         });
     }
 
